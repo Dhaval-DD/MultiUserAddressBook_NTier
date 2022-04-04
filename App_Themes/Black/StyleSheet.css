@@ -1,0 +1,61 @@
+﻿body {
+   /* background-image: url("https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2020/02/Usign-Gradients-Featured-Image.jpg?resize=1250,1120");*/
+}
+
+
+.header {
+    background: rgb(68,0,75);
+    background: linear-gradient(112deg, rgba(68,0,75,1) 12%, rgba(43,7,88,1) 100%);
+    /* https: //cssgradient.io/*/
+}
+.hborder {
+    /*border:solid;*/
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+    border-radius: 15px;
+}
+
+.footerFont {
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace !important;
+}
+
+.li:hover {
+    color: pink;
+}
+
+
+
+.scrollmenu {
+    overflow: auto;
+    /*white-space: nowrap;*/
+   /* display: inline-block;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;*/
+}
+
+.addbuttoncontact {
+    float: right; 
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.addbutton {
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.listheadingcontact {
+    font-size: 25px;
+    font-weight: 500;
+    margin-left: 2px;
+}
+.listheading {
+    font-size: 25px;
+    font-weight: 500;
+   
+}
+
+.required {
+    color: red;
+}

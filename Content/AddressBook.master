@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AddressBook.master.cs" Inherits="AddressBook" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+
+    <link href="CSS/bootstrap.css" rel="stylesheet" />
+    <link href="CSS/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="Js/bootstrap.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
+
+
+    <%--//FontAwesome--%>
+    <link href="CSS/all.min.css" rel="stylesheet" />
+    <script src="~/Js/all.js"></script>
+
+
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <nav class="navbar  navbar-expand-lg navbar-dark bg-dark header">
+
+            <i class="fas fa-address-book" style="font-size: 30px; color: white;"></i>&nbsp;&nbsp;
+
+            <a class="navbar-brand" href="#" style="font-size: 25px;">Address Book</a>
+
+
+
+            <div class="collapse navbar-collapse" style="" id="navbarSupportedContent">
+                <div style="font-size: 16px; border-left: 1px solid white;">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item  ">
+                            <asp:HyperLink ID="hlContactH" class="nav-link" NavigateUrl="~/AdminPanel/Contact/List" runat="server">Contact</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hlCountryH" class="nav-link" NavigateUrl="~/AdminPanel/Country/List" runat="server">Country</asp:HyperLink>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hlStateH" class="nav-link" NavigateUrl="~/AdminPanel/State/List" runat="server">State</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hlCityH" class="nav-link" NavigateUrl="~/AdminPanel/City/List" runat="server">City</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hCContactH" class="nav-link" NavigateUrl="~/AdminPanel/ContactCategory/List" runat="server">Contact Category</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <asp:Label Style="color: white;" runat="server" ID="lblUserName"></asp:Label>&nbsp;&nbsp;
+            <asp:LinkButton ID="lbtnLogout" CssClass="btn btn-warning" runat="server" Text="Logout" OnClick="lbtnLogout_Click"></asp:LinkButton>
+
+        </nav>
+
+
+        <%--<div class="d-flex justify-content-center">
+            <h1>ADDRESSBOOK</h1>
+        </div>--%>
+
+
+
+        <br />
+        <div>
+            <asp:ContentPlaceHolder ID="cphContant" runat="server">
+            </asp:ContentPlaceHolder>
+            <br />
+            <br />
+        </div>
+        <div>
+            <nav class="navbar  navbar-expand-lg navbar-dark bg-dark footerFont ">
+                <div class="col-md-6 ">
+                    <div style="color: white">
+                        <span style="font-size: 18px;">Dhaval Dobariya  |  190540107050@darshan.ac.in      
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6" style="font-size: 16px; border-left: 1px solid gray;">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item ">
+                            <asp:HyperLink ID="hlCotact" class="nav-link" NavigateUrl="~/AdminPanel/Contact/List.aspx" runat="server">Contact</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hlCountry" class="nav-link" NavigateUrl="~/AdminPanel/Country/List.aspx" runat="server">Country</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hlState" class="nav-link" NavigateUrl="~/AdminPanel/State/List.aspx" runat="server">State</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hlCity" class="nav-link" NavigateUrl="~/AdminPanel/City/List.aspx" runat="server">City</asp:HyperLink>
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="hlCcontact" class="nav-link" NavigateUrl="~/AdminPanel/ContactCategory/List.aspx" runat="server">Contact Category</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </nav>
+
+        </div>
+    </form>
+</body>
+</html>

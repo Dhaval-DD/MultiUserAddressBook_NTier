@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files\microsoft visual studio\2022\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="17.0">
+ <Targets>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmpC0C2.tmp.cadir\bin\App_Code.dll">
+   <Modules>
+    <Module Name="app_code.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="CommonDropDownFillMethods" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#FillCBLContactCategoryList(System.Web.UI.WebControls.CheckBoxList,System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\App_Code" File="CommonDropDownFillMethods.cs" Line="246">Object 'objConn' can be disposed more than once in method 'CommonDropDownFillMethods.FillCBLContactCategoryList(CheckBoxList, object)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 246</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillDropDownListCitySelectByStateID(System.Web.UI.WebControls.DropDownList,System.Web.UI.WebControls.DropDownList,System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\App_Code" File="CommonDropDownFillMethods.cs" Line="202">Object 'objConn' can be disposed more than once in method 'CommonDropDownFillMethods.FillDropDownListCitySelectByStateID(DropDownList, DropDownList, object)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 202</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillDropDownListCountry(System.Web.UI.WebControls.DropDownList,System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\App_Code" File="CommonDropDownFillMethods.cs" Line="53">Object 'objConn' can be disposed more than once in method 'CommonDropDownFillMethods.FillDropDownListCountry(DropDownList, object)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 53</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillDropDownListState(System.Web.UI.WebControls.DropDownList,System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\App_Code" File="CommonDropDownFillMethods.cs" Line="98">Object 'objConn' can be disposed more than once in method 'CommonDropDownFillMethods.FillDropDownListState(DropDownList, object)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 98</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillDropDownListStateByCountryID(System.Web.UI.WebControls.DropDownList,System.Web.UI.WebControls.DropDownList,System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\App_Code" File="CommonDropDownFillMethods.cs" Line="150">Object 'objConn' can be disposed more than once in method 'CommonDropDownFillMethods.FillDropDownListStateByCountryID(DropDownList, DropDownList, object)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 150</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmpC0C2.tmp.cadir\bin\App_Web_02iejwpn.dll">
+   <Modules>
+    <Module Name="app_web_02iejwpn.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AdminPanel_Country_CountryAddEdit" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Country" File="CountryAddEdit.aspx.cs" Line="147">Object 'objConn' can be disposed more than once in method 'AdminPanel_Country_CountryAddEdit.btnSave_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 147</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillEditContaral(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Country" File="CountryAddEdit.aspx.cs" Line="219">Object 'objConn' can be disposed more than once in method 'AdminPanel_Country_CountryAddEdit.FillEditContaral(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 219</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AdminPanel_CountryList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteCountry(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Country" File="CountryList.aspx.cs" Line="160">Object 'objConn' can be disposed more than once in method 'AdminPanel_CountryList.DeleteCountry(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 160</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmpC0C2.tmp.cadir\bin\App_Web_4zkiehgv.dll">
+   <Modules>
+    <Module Name="app_web_4zkiehgv.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AdminPanel_CountryList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteState(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\State" File="StateLIst.aspx.cs" Line="164">Object 'objConn' can be disposed more than once in method 'AdminPanel_CountryList.DeleteState(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 164</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillGridView()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\State" File="StateLIst.aspx.cs" Line="105">Object 'objConn' can be disposed more than once in method 'AdminPanel_CountryList.FillGridView()'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 105</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AdminPanel_State_StateAddEdit" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\State" File="StateAddEdit.aspx.cs" Line="156">Object 'objConn' can be disposed more than once in method 'AdminPanel_State_StateAddEdit.btnSave_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 156</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillEditControl(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\State" File="StateAddEdit.aspx.cs" Line="291">Object 'objConn' can be disposed more than once in method 'AdminPanel_State_StateAddEdit.FillEditControl(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 291</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmpC0C2.tmp.cadir\bin\App_Web_gchkimyz.dll">
+   <Modules>
+    <Module Name="app_web_gchkimyz.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AdminPanel_City_CityAddEdit" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\City" File="CityAddEdit.aspx.cs" Line="160">Object 'objConn' can be disposed more than once in method 'AdminPanel_City_CityAddEdit.btnSave_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 160</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AdminPanel_City_CityList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteState(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\City" File="CityList.aspx.cs" Line="145">Object 'objConn' can be disposed more than once in method 'AdminPanel_City_CityList.DeleteState(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 145</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillGridView()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\City" File="CityList.aspx.cs" Line="103">Object 'objConn' can be disposed more than once in method 'AdminPanel_City_CityList.FillGridView()'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 103</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmpC0C2.tmp.cadir\bin\App_Web_qsyy5w00.dll">
+   <Modules>
+    <Module Name="app_web_qsyy5w00.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AdminPanel_Contact_ContactAddEdit" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#AddContactCategory(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactAddEdit.aspx.cs" Line="408">Object 'objConn' can be disposed more than once in method 'AdminPanel_Contact_ContactAddEdit.AddContactCategory(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 408</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactAddEdit.aspx.cs" Line="301">Object 'objConn' can be disposed more than once in method 'AdminPanel_Contact_ContactAddEdit.btnSave_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 301</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillContactCategory(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactAddEdit.aspx.cs" Line="356">Object 'objConn' can be disposed more than once in method 'AdminPanel_Contact_ContactAddEdit.FillContactCategory(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 356</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillControls(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactAddEdit.aspx.cs" Line="536">Object 'objConn' can be disposed more than once in method 'AdminPanel_Contact_ContactAddEdit.FillControls(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 536</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UploadImage(System.Data.SqlTypes.SqlInt32,System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactAddEdit.aspx.cs" Line="839">Object 'objConn' can be disposed more than once in method 'AdminPanel_Contact_ContactAddEdit.UploadImage(SqlInt32, string)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 839</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AdminPanel_ContactList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteContact(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactLIst.aspx.cs" Line="162">Object 'objConn' can be disposed more than once in method 'AdminPanel_ContactList.DeleteContact(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 162</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DeleteContactImage(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactLIst.aspx.cs" Line="214">Object 'objConn' can be disposed more than once in method 'AdminPanel_ContactList.DeleteContactImage(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 214</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillGridView()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\Contact" File="ContactLIst.aspx.cs" Line="79">Object 'objConn' can be disposed more than once in method 'AdminPanel_ContactList.FillGridView()'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 79</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmpC0C2.tmp.cadir\bin\App_Web_tasvnklj.dll">
+   <Modules>
+    <Module Name="app_web_tasvnklj.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AdminPanel_Login" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnLogin_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel" File="Login.aspx.cs" Line="108">Object 'objConn' can be disposed more than once in method 'AdminPanel_Login.btnLogin_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 108</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AdminPanel_Ragistration" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnRegister_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel" File="Ragistration.aspx.cs" Line="123">Object 'objConn' can be disposed more than once in method 'AdminPanel_Ragistration.btnRegister_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 123</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmpC0C2.tmp.cadir\bin\App_Web_tqumf4s0.dll">
+   <Modules>
+    <Module Name="app_web_tqumf4s0.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AdminPanel_ContactCategory_ContactCategoryAddEdit" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnSave_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\ContactCategory" File="ContactCategoryAddEdit.aspx.cs" Line="131">Object 'objConn' can be disposed more than once in method 'AdminPanel_ContactCategory_ContactCategoryAddEdit.btnSave_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 131</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AdminPanel_CountryList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteState(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\ContactCategory" File="ContactCategoryLIst.aspx.cs" Line="162">Object 'objConn' can be disposed more than once in method 'AdminPanel_CountryList.DeleteState(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 162</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#FillGrideViewCountry()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-03-25 07:47:59Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook\AdminPanel\ContactCategory" File="ContactCategoryLIst.aspx.cs" Line="105">Object 'objConn' can be disposed more than once in method 'AdminPanel_CountryList.FillGrideViewCountry()'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 105</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>Do not dispose objects multiple times</Name>
+   <Description>A correctly implemented Dispose method can be called multiple times without throwing an exception. However, this is not guaranteed and to avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.</Description>
+   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 246</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="17.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>
