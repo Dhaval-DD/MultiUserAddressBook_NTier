@@ -80,7 +80,7 @@ namespace Addressbook.DAL
         #endregion SelectAll
 
         #region Get State For DropDown
-        public DataTable GetStateDropDown(SqlInt32 UserID, SqlInt32 StateID)
+        public DataTable GetStateDropDown(SqlInt32 UserID, SqlInt32 CountryID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -97,11 +97,11 @@ namespace Addressbook.DAL
 
                         objCmd.CommandType = CommandType.StoredProcedure;
 
-                        if (!StateID.IsNull)
+                        if (!CountryID.IsNull)
                         {
 
                             objCmd.CommandText = "PR_State_SelectByCountryID";
-                            objCmd.Parameters.AddWithValue("@StateID", StateID);
+                            objCmd.Parameters.AddWithValue("@CountryID", CountryID);
                         }
                         //else
                         //{

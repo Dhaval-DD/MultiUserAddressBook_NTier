@@ -67,6 +67,7 @@ public partial class AdminPanel_ContactList : System.Web.UI.Page
                 FillGridView();
             }
         }
+        FillGridView();
 
     }
     #endregion gvContact : RowCommand
@@ -85,6 +86,7 @@ public partial class AdminPanel_ContactList : System.Web.UI.Page
             file.Delete();
         }
         #endregion Delete Image
+        FillGridView();
         DeleteContactImage(ContactID);
         if (balContact.DeleteContact(ContactID, Convert.ToInt32(Session["UserID"])))
         {
@@ -97,7 +99,6 @@ public partial class AdminPanel_ContactList : System.Web.UI.Page
         {
             lblMessage.Text = balContact.Message;
         }
-        FillGridView();
 
     }
     #endregion Delete record
@@ -132,6 +133,7 @@ public partial class AdminPanel_ContactList : System.Web.UI.Page
     }
     #endregion Delete Image
 
+    #region Delete ContactWiseContactCategory
     private void DeleteContactWiseContactCategory(SqlInt32 ContactID)
     {
 
@@ -141,6 +143,7 @@ public partial class AdminPanel_ContactList : System.Web.UI.Page
             lblMessage.Text = balContactWiseContactCategory.Message;
         }
     }
+    #endregion Delete ContactWiseContactCategory
 
 }
 

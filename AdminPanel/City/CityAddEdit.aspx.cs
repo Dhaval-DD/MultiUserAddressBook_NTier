@@ -185,7 +185,7 @@ public partial class AdminPanel_City_CityAddEdit : System.Web.UI.Page
     protected void FillDropDownStateList()
     {
         //CommonDropDownFillMethods.FillDropDownListState(ddlStateID, Session["UserID"]);
-        CommonDropDownFillMethods.FillDropDownListStateByCountryID(ddlStateID, ddlCountryID, Session["UserID"]);
+        CommonDropDownFillMethods.FillDropDownListStateByCountryID(ddlStateID, Convert.ToInt32(Session["UserID"]), Convert.ToInt32(ddlCountryID.SelectedValue));
 
         #region comment 
         /*SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
@@ -239,7 +239,7 @@ public partial class AdminPanel_City_CityAddEdit : System.Web.UI.Page
     protected void FillDropDownCountryList()
     {
 
-        CommonDropDownFillMethods.FillDropDownListCountry(ddlCountryID, Session["UserID"]);
+        CommonDropDownFillMethods.FillDropDownListCountry(ddlCountryID, Convert.ToInt32(Session["UserID"]));
 
         #region /comment/
         //#region Connection String

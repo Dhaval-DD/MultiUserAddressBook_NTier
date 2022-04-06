@@ -96,5 +96,11 @@ namespace Addressbook.BAL
             }
         }
         #endregion UpdateContactCategory
+
+        public DataTable GetContactCategoryDropDown(SqlInt32 UserID)
+        {
+            ContactCategoryDAL dalContactCategory = new ContactCategoryDAL();
+            return dalContactCategory.GetContactCategoryDropDown(UserID);
+        }
     }
 }

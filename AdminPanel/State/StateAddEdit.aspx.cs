@@ -170,7 +170,7 @@ public partial class AdminPanel_State_StateAddEdit : System.Web.UI.Page
     protected void FillDropDownList()
     {
 
-        CommonDropDownFillMethods.FillDropDownListCountry(ddlCountryID, Session["UserID"]);
+        CommonDropDownFillMethods.FillDropDownListCountry(ddlCountryID, Convert.ToInt32(Session["UserID"]));
 
         #region comment 
         /*#region Local Variable

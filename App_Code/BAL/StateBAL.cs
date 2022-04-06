@@ -82,10 +82,10 @@ namespace Addressbook.BAL
         #endregion UpdateState
 
         #region Get State DropDown
-        public DataTable GetStateDropDown(SqlInt32 UserID, SqlInt32 StateID)
+        public DataTable GetStateDropDown(SqlInt32 UserID, SqlInt32 CountryID)
         {
             StateDAL dalState = new StateDAL();
-            return dalState.GetStateDropDown(UserID, StateID);
+            return dalState.GetStateDropDown(UserID, CountryID);
            
         }
         #endregion Get State DropDown
