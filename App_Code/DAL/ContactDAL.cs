@@ -1,4 +1,4 @@
-﻿using AddressBook.ENT;
+﻿using Addressbook.ENT;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,7 +7,7 @@ using System.Data.SqlTypes;
 /// <summary>
 /// Summary description for ContactDAL
 /// </summary>
-namespace AddressBook.DAL
+namespace Addressbook.DAL
 {
     public class ContactDAL : DatabaseConfig
     {
@@ -32,7 +32,7 @@ namespace AddressBook.DAL
 
         #region SelectAll
         //Get Contact List
-        public DataTable SelectAllContact()
+        public DataTable SelectAll(SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -45,6 +45,8 @@ namespace AddressBook.DAL
                         #region Prepared Command
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_Contact_SelectAllByPK_UserID";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+
                         #endregion Prepared Command
 
                         #region ReadData & Set Control
@@ -298,7 +300,7 @@ namespace AddressBook.DAL
         #endregion Update Contact
 
         #region Delete Contact
-        public Boolean DeleteContact(ContactENT entContact)
+        public Boolean DeleteContact(SqlInt32 ContactID, SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -313,8 +315,8 @@ namespace AddressBook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_Contact_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@ContactD", entContact.ContactID);
-                        objCmd.Parameters.AddWithValue("@UserID", entContact.UserID);
+                        objCmd.Parameters.AddWithValue("@ContactID", ContactID);
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();
 
@@ -354,9 +356,12 @@ namespace AddressBook.DAL
         }
         #endregion Delete Contact
 
-        #region Delete Contact
 
-        public Boolean DeleteImage(ContactENT entContact)
+
+        //-------------------------Image----------------------------//
+        #region Delete Image
+
+        public Boolean DeleteImage(SqlInt32 ContactID, SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -367,10 +372,10 @@ namespace AddressBook.DAL
                     try
                     {
                         objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.CommandText = "PR_Contact_DeleteImagePathByPK";
+                        objCmd.CommandText = "PR_Contact_DeleteImageByPK";
 
-                        objCmd.Parameters.AddWithValue("@UserID", entContact.UserID);
-                        objCmd.Parameters.AddWithValue("@ContacID", entContact.ContactID);
+                        objCmd.Parameters.AddWithValue("@ContactID", ContactID);
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();
 
@@ -398,9 +403,9 @@ namespace AddressBook.DAL
                 }
             }
         }
-        #endregion Delete Contact
+        #endregion Delete Image
 
-        #region Update Contact
+        #region Update Image
 
         public Boolean UpdateImage(ContactENT entContact)
         {
@@ -451,7 +456,8 @@ namespace AddressBook.DAL
                 }
             }
         }
-        #endregion Update Contact
+        #endregion Update Image
+        //-------------------------/Image/---------------------------//
 
 
     }

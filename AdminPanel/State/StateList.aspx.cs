@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Addressbook.BAL;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -65,44 +66,22 @@ public partial class AdminPanel_CountryList : System.Web.UI.Page
     #region FillGridView
     private void FillGridView()
     {
-        #region Local Variable
-        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
-        //Read the connection string from web.Config file
-        #endregion Local Variable
+        StateBAL balState = new StateBAL();
+        DataTable dtState = new DataTable();
 
-        try
+        if (Session["UserID"] != null)
         {
-            #region Set Connection & Command Object
-
-            if (ConnectionState.Open != objConn.State)
-                objConn.Open();
-
-            SqlCommand objCmd = new SqlCommand();
-            objCmd.Connection = objConn;
-            objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_State_SelectAllByUserID";
-            if (Session["UserID"] != null)
-                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
-            #endregion Set Connection & Command Object
-
-            SqlDataReader objSDR = objCmd.ExecuteReader();
-
-            if (objSDR.HasRows)
-            {
-                gvState.DataSource = objSDR;
-                gvState.DataBind();
-            }
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
+            dtState = balState.SelectAll(Convert.ToInt32(Session["UserID"]));
         }
-        catch (Exception ex)
+        else
         {
-            lblMessage.Text = ex.Message;
+            lblMessage.Text = balState.Message;
         }
-        finally
+
+        if (dtState.Rows.Count > 0 && dtState != null)
         {
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
+            gvState.DataSource = dtState;
+            gvState.DataBind();
         }
 
     }
@@ -116,52 +95,27 @@ public partial class AdminPanel_CountryList : System.Web.UI.Page
 
         if (e.CommandName == "DeleteRecord")
         {
-            if (e.CommandArgument.ToString() != "")
+            if (e.CommandArgument.ToString() != null)
             {
                 DeleteState(Convert.ToInt32(e.CommandArgument.ToString().Trim()));
             }
-        } 
+        }
     }
     #endregion gvState : RowCommand
 
     #region Delete State record
     private void DeleteState(SqlInt32 StateID)
     {
-        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
-
-        try
+        StateBAL balState = new StateBAL();
+        if (balState.DeleteState(StateID, Convert.ToInt32(Session["UserID"])))
         {
-            #region Set Connection & Command Object
-            if (ConnectionState.Open != objConn.State)
-                objConn.Open();
-
-            SqlCommand objCmd = objConn.CreateCommand();
-            objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_State_DeleteByPK";
-            if (Session["UserID"] != null)
-                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
-            objCmd.Parameters.AddWithValue("@StateID", StateID.ToString());
-
-            objCmd.ExecuteNonQuery();
-
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
-
-            #endregion Set Connection & Command Object
-
-            FillGridView();
             lblMessage.ForeColor = Color.Green;
-            lblMessage.Text = "Data deleted successfully!";
-            //lblMessage.Text = "Deleted ";  
+            lblMessage.Text = "State deleted successfully";
+            FillGridView();
         }
-        catch (Exception ex)
+        else
         {
-            lblMessage.Text = ex.Message;
-        }
-        finally
-        {
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
+            lblMessage.Text = balState.Message;
         }
     }
     #endregion Delete State record

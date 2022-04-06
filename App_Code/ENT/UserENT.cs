@@ -8,7 +8,7 @@ using System.Data.SqlTypes;
 /// <summary>
 /// Summary description for UserENT
 /// </summary>
-namespace AddressBook.ENT
+namespace Addressbook.ENT
 {
     public class UserENT
     {

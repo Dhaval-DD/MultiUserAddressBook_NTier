@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Addressbook.BAL;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -19,132 +20,47 @@ public partial class AdminPanel_City_CityList : System.Web.UI.Page
             FillGridView();
         }
 
-
-
-
-        #region //OLD method//
-        /* //Establish the connection
-     SqlConnection objConn = new SqlConnection();
-     objConn.ConnectionString = "data source=ELECTRO;initial catalog=AddressBook; Integrated Security=True;";
-     //data source = ELECTRO; --> THis is the source of the Data/Server Name
-     //intital catalog=AddressBook; --> This is the name of Database
-     //Integrated Security=True;" --> if it is True consider as Windows Authentication.
-     //                              in the case of Flase SQL Authentication
-     //Integrated Security=False; User ID=aa;Password=passw0d;"  its need ID&Password.
-
-     objConn.Open();   //open connection
-     //work here
-
-     //step-2 prepare the command object
-     SqlCommand objCmd = new SqlCommand();
-     objCmd.Connection = objConn;
-     objCmd.CommandType = CommandType.StoredProcedure;
-     //objCmd.CommandType = CommandType.Text;
-     //objCmd.CommandType = CommandType.TableDirect;
-     objCmd.CommandText = "PR_City_SelectAll";
-
-     //objCmd.ExecuteNonQuery();   Insert/Update/Delete
-     //objCmd.ExecuteReader();     Select
-     //objCmd.ExecuteScalar();     only for Scalar value is being return (ex:number row)
-     //objCmd.ExecuteXmlReader();  XML type of data
-
-     SqlDataReader objSDR = objCmd.ExecuteReader();
-     gvCity.DataSource = objSDR;
-     gvCity.DataBind();
-
-
-
-
-     objConn.Close();*/
-
-        #endregion //OLD method//
-
     }
-    #endregion Load Event
+    #endregion Load Event 
 
     #region FillGridview 
     private void FillGridView()
     {
-        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
-        //Read the connection string from web.Config file
-        try
+        CityBAL balCity = new CityBAL();
+        DataTable dtCity = new DataTable();
+
+        if (Session["UserID"] != null)
         {
-            #region set Connection & Command Object
-            if (ConnectionState.Open != objConn.State)
-                objConn.Open();
-
-            SqlCommand objCmd = new SqlCommand();
-            objCmd.Connection = objConn;
-            objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_City_SelectAllByUserID";
-
-            if (Session["UserID"] != null)
-                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
-            #endregion set Connection & Command Object
-
-
-            SqlDataReader objSDR = objCmd.ExecuteReader();
-
-            if (objSDR.HasRows)
-            {
-                gvCity.DataSource = objSDR;
-                gvCity.DataBind();
-            }
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
+            dtCity = balCity.SelectAll(Convert.ToInt32(Session["UserID"]));
         }
-        catch (Exception ex)
+        else
         {
-            lblMessage.Text = ex.Message;
+            lblMessage.Text = balCity.Message;
         }
-        finally
+
+        if (dtCity.Rows.Count > 0 && dtCity != null)
         {
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
+            gvCity.DataSource = dtCity;
+            gvCity.DataBind();
         }
+        
     }
     #endregion FillGridview 
 
     #region Delete record
-    private void DeleteState(SqlInt32 CityID)
+    private void DeleteCity(SqlInt32 CityID)
     {
-        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
-        try
+        CityBAL balCity = new CityBAL();
+        if (balCity.DeleteCity(CityID, Convert.ToInt32(Session["UserID"])))
         {
-            #region set Connection & Command object
-            if (ConnectionState.Open != objConn.State)
-                objConn.Open();
-
-            SqlCommand objCmd = objConn.CreateCommand();
-            objCmd.CommandType = CommandType.StoredProcedure;
-            objCmd.CommandText = "PR_City_DeleteByPK";
-
-            if (Session["UserID"] != null)
-                objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
-
-            objCmd.Parameters.AddWithValue("@CityID", CityID.ToString());
-            #endregion set Connection & Command object
-
-            objCmd.ExecuteNonQuery();
-
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
-
-            FillGridView();
             lblMessage.ForeColor = Color.Green;
-            lblMessage.Text = "Data deleted successfully!";
-            
+            lblMessage.Text = "City deleted successfully";
+            FillGridView();
         }
-        catch (Exception ex)
+        else
         {
-            lblMessage.Text = ex.Message;
+            lblMessage.Text = balCity.Message;
         }
-        finally
-        {
-            if (ConnectionState.Closed != objConn.State)
-                objConn.Close();
-        }
-
 
     }
     #endregion Delete record
@@ -154,9 +70,9 @@ public partial class AdminPanel_City_CityList : System.Web.UI.Page
     {
         if (e.CommandName == "DeleteRecord")
         {
-            if (e.CommandArgument.ToString() != "")
+            if (e.CommandArgument.ToString() != null)
             {
-                DeleteState(Convert.ToInt32(e.CommandArgument.ToString().Trim()));
+                DeleteCity(Convert.ToInt32(e.CommandArgument.ToString().Trim()));
             }
         }
     }

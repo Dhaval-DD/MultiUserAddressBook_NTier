@@ -1,4 +1,4 @@
-﻿using AddressBook.ENT;
+﻿using Addressbook.ENT;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +10,7 @@ using System.Web;
 /// <summary>
 /// Summary description for StateDAL
 /// </summary>
-namespace AddressBook.DAL
+namespace Addressbook.DAL
 {
     public class StateDAL : DatabaseConfig
     {
@@ -34,7 +34,7 @@ namespace AddressBook.DAL
 
         #region SelectAll
         //Get State List
-        public DataTable SelectAllState()
+        public DataTable SelectAll(SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -46,6 +46,8 @@ namespace AddressBook.DAL
                         #region Prepared Command
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_State_SelectAllByUserID";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+
                         #endregion Prepared Command
 
                         #region ReadData & Set Control
@@ -77,8 +79,8 @@ namespace AddressBook.DAL
         }
         #endregion SelectAll
 
-        #region Fill Country
-        public DataTable FillCountry(SqlInt32 UserID)
+        #region Get State For DropDown
+        public DataTable GetStateDropDown(SqlInt32 UserID, SqlInt32 StateID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -88,32 +90,40 @@ namespace AddressBook.DAL
                 {
                     try
                     {
-                        #region Prepared Command & Set Parameters
-                        objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.CommandText = "PR_Country_SelectForDropDownList";
-                        objCmd.Parameters.AddWithValue("@UserID", UserID);
-                        #endregion Prepared Command & Set Parameters
-
-                        #region ReadData & Set Control
+                        if (objConn.State != ConnectionState.Open)
+                            objConn.Open();
                         DataTable dt = new DataTable();
-                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        #region Create Command and Bind Data
+
+                        objCmd.CommandType = CommandType.StoredProcedure;
+
+                        if (!StateID.IsNull)
                         {
-                            dt.Load(objSDR);
+
+                            objCmd.CommandText = "PR_State_SelectByCountryID";
+                            objCmd.Parameters.AddWithValue("@StateID", StateID);
                         }
+                        //else
+                        //{
+                        //    objCmd.CommandText = "PR_State_SelectForDropDownList";
+                        //}
+
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+
+                        SqlDataReader objSDR = objCmd.ExecuteReader();
+
+                        dt.Load(objSDR);
+
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
                         return dt;
-                        #endregion ReadData & Set Control
 
-                    }
-                    catch (SqlException sqlex)
-                    {
-
-                        Message = sqlex.InnerException.Message.ToString();
-                        return null;
+                        #endregion Create Command and Bind Data
 
                     }
                     catch (Exception ex)
                     {
-                        Message = ex.InnerException.Message.ToString();
+                        _Message = ex.ToString();
                         return null;
                     }
                     finally
@@ -124,8 +134,7 @@ namespace AddressBook.DAL
                 }
             }
         }
-        #endregion Fill Country
-
+        #endregion Get State For DropDown
 
 
         #region SelectByPK
@@ -299,7 +308,7 @@ namespace AddressBook.DAL
         #endregion Update State
 
         #region Delete State
-        public Boolean DeleteState(StateENT entState)
+        public Boolean DeleteState(SqlInt32 StateID, SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -312,8 +321,8 @@ namespace AddressBook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_State_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@StateD", entState.StateID);
-                        objCmd.Parameters.AddWithValue("@UserID", entState.UserID);
+                        objCmd.Parameters.AddWithValue("@StateD", StateID);
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();
 
@@ -353,6 +362,55 @@ namespace AddressBook.DAL
         }
         #endregion Delete State
 
+       /* #region Fill Country
+        public DataTable FillCountry(SqlInt32 UserID)
+        {
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                if (objConn.State != ConnectionState.Open)
+                    objConn.Open();
+                using (SqlCommand objCmd = objConn.CreateCommand())
+                {
+                    try
+                    {
+                        #region Prepared Command & Set Parameters
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Country_SelectForDropDownList";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+                        #endregion Prepared Command & Set Parameters
+
+                        #region ReadData & Set Control
+                        DataTable dt = new DataTable();
+                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        {
+                            dt.Load(objSDR);
+                        }
+                        return dt;
+                        #endregion ReadData & Set Control
+
+                    }
+                    catch (SqlException sqlex)
+                    {
+
+                        Message = sqlex.InnerException.Message.ToString();
+                        return null;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Message = ex.InnerException.Message.ToString();
+                        return null;
+                    }
+                    finally
+                    {
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
+                    }
+                }
+            }
+        }
+        #endregion Fill Country
+*/
 
     }
 }

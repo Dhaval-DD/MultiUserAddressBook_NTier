@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Addressbook.BAL;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,6 +15,8 @@ public static class CommonDropDownFillMethods
     #region FillDropDownListCountry
     public static void FillDropDownListCountry(DropDownList ddlCountry, object user) //Pass DropDownList for Argument
     {
+
+
         SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
         try
         {
@@ -58,6 +61,9 @@ public static class CommonDropDownFillMethods
     #region FillDropDownListState
     public static void FillDropDownListState(DropDownList ddlState, object user)
     {
+        //StateBAL balState = new StateBAL();
+        //ddlState.DataSource = balState.GetStateDropDown(StateID, user);
+
         #region Local Variables
         SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
         #endregion Local Variables

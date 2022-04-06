@@ -4,7 +4,7 @@
 /// Summary description for CityENT
 /// </summary>
 
-namespace AddressBook.ENT
+namespace Addressbook.ENT
 {
     public class CityENT
     {

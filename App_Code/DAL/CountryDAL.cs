@@ -1,13 +1,13 @@
-﻿using AddressBook.ENT;
-using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
+﻿    using Addressbook.ENT;
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Data.SqlTypes;
 
 /// <summary>
 /// Summary description for CountryDAL
 /// </summary>
-namespace AddressBook.DAL
+namespace Addressbook.DAL
 {
     public class CountryDAL : DatabaseConfig
     {
@@ -31,7 +31,7 @@ namespace AddressBook.DAL
 
         #region SelectAll
         //Get Country List
-        public DataTable SelectAllCountry()
+        public DataTable SelectAll(SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -44,6 +44,7 @@ namespace AddressBook.DAL
                         #region Prepared Command
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_Country_SelectAllByUserID";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
                         #endregion Prepared Command
 
                         #region ReadData & Set Control
@@ -78,10 +79,10 @@ namespace AddressBook.DAL
         }
         #endregion SelectAll
 
-        ///////////////////////////////////
-/*
-        #region Fill Country
-        public DataTable FillCountry(SqlInt32 UserID, SqlInt32 CountryID)
+
+
+        #region Get Country For DropDown
+        public DataTable GetCountryDropDown(SqlInt32 UserId)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -91,32 +92,30 @@ namespace AddressBook.DAL
                 {
                     try
                     {
-                        #region Prepared Command & Set Parameters
-                        objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.CommandText = "PR_Country_SelectByPK";
-                        objCmd.Parameters.AddWithValue("@UserID", UserID);
-                        objCmd.Parameters.AddWithValue("@CountryID", CountryID);
-                        #endregion Prepared Command & Set Parameters
-
-                        #region ReadData & Set Control
+                        if (objConn.State != ConnectionState.Open)
+                            objConn.Open();
                         DataTable dt = new DataTable();
-                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
-                        {
-                            dt.Load(objSDR);
-                        }
+                        #region Create Command and Bind Data
+
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Country_SelectForDropDownList";
+                        objCmd.Parameters.AddWithValue("@UserID", UserId);
+
+                        SqlDataReader objSDR = objCmd.ExecuteReader();
+
+                        dt.Load(objSDR);
 
                         if (objConn.State == ConnectionState.Open)
                             objConn.Close();
+
                         return dt;
-                        #endregion ReadData & Set Control
+                        #endregion Create Command and Bind Data
 
                     }
                     catch (SqlException sqlex)
                     {
-
                         Message = sqlex.InnerException.Message.ToString();
                         return null;
-
                     }
                     catch (Exception ex)
                     {
@@ -131,9 +130,7 @@ namespace AddressBook.DAL
                 }
             }
         }
-        #endregion Fill Country
-*/
-
+        #endregion Get Country For DropDown
 
         #region SelectByPK
         //Get Country BY ID
@@ -193,7 +190,6 @@ namespace AddressBook.DAL
         }
         #endregion SelectByPK
 
-        /////////////////////////////////////////
 
 
         #region Insert Country
@@ -201,8 +197,8 @@ namespace AddressBook.DAL
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
-                if(objConn.State != ConnectionState.Open)
-                objConn.Open();
+                if (objConn.State != ConnectionState.Open)
+                    objConn.Open();
                 using (SqlCommand objCmd = objConn.CreateCommand())
                 {
                     try
@@ -311,7 +307,7 @@ namespace AddressBook.DAL
         #endregion Update Country
 
         #region Delete Country
-        public Boolean DeleteCountry(CountryENT entCountry)
+        public Boolean DeleteCountry(SqlInt32 CountryID, SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -326,8 +322,8 @@ namespace AddressBook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_Country_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@CountryD", entCountry.CountryID);
-                        objCmd.Parameters.AddWithValue("@UserID", entCountry.UserID);
+                        objCmd.Parameters.AddWithValue("@CountryD", CountryID);
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();
 

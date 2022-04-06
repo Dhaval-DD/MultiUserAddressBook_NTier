@@ -1,4 +1,4 @@
-﻿using AddressBook.ENT;
+﻿using Addressbook.ENT;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,7 +7,7 @@ using System.Data.SqlTypes;
 /// <summary>
 /// Summary description for ContactCategoryDAL
 /// </summary>
-namespace AddressBook.DAL
+namespace Addressbook.DAL
 {
     public class ContactCategoryDAL : DatabaseConfig
     {
@@ -32,7 +32,7 @@ namespace AddressBook.DAL
 
         #region SelectAll
         //Get ContactCategory List
-        public DataTable SelectAllContactCategory()
+        public DataTable SelectAll(SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -45,6 +45,7 @@ namespace AddressBook.DAL
                         #region Prepared Command
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_ContactCategory_SelectAllByUserID";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
                         #endregion Prepared Command
 
                         #region ReadData & Set Control
@@ -248,7 +249,7 @@ namespace AddressBook.DAL
         #endregion Update ContactCategory
 
         #region Delete ContactCategory
-        public Boolean DeleteContactCategory(ContactCategoryENT entContactCategory)
+        public Boolean DeleteContactCategory(SqlInt32 ContactCategoryID, SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -263,8 +264,8 @@ namespace AddressBook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_ContactCategory_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@ContactCategoryD", entContactCategory.ContactCategoryID);
-                        objCmd.Parameters.AddWithValue("@UserID", entContactCategory.UserID);
+                        objCmd.Parameters.AddWithValue("@ContactCategoryD", ContactCategoryID);
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();
 
@@ -303,6 +304,58 @@ namespace AddressBook.DAL
             }
         }
         #endregion Delete ContactCategory
+
+        #region Get ContactCategory For DropDown
+        public DataTable GetContactCategoryDropDown(SqlInt32 UserID)
+        {
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                if (objConn.State != ConnectionState.Open)
+                    objConn.Open();
+                using (SqlCommand objCmd = objConn.CreateCommand())
+                {
+                    try
+                    {
+                        if (objConn.State != ConnectionState.Open)
+                            objConn.Open();
+                        DataTable dt = new DataTable();
+                        #region Create Command and Bind Data
+
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_ContactCategory_SelectForDropDownList";
+
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+
+                        SqlDataReader objSDR = objCmd.ExecuteReader();
+
+                        dt.Load(objSDR);
+
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
+                        return dt;
+
+                        #endregion Create Command and Bind Data
+
+                    }
+                    catch (SqlException sqlex)
+                    {
+                        Message = sqlex.InnerException.Message.ToString();
+                        return null;
+                    }
+                    catch (Exception ex)
+                    {
+                        Message = ex.InnerException.Message.ToString();
+                        return null;
+                    }
+                    finally
+                    {
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
+                    }
+                }
+            }
+        }
+        #endregion Get ContactCategory For DropDown
 
     }
 }

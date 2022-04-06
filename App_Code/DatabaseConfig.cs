@@ -8,7 +8,7 @@ using System.Web;
 /// Summary description for DatabaseConfig
 /// </summary>
 
-namespace AddressBook
+namespace Addressbook
 {
     public class DatabaseConfig
     {
@@ -20,6 +20,6 @@ namespace AddressBook
         }
 
         public static string ConnectionString = ConfigurationManager
-            .ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString;
+            .ConnectionStrings["MultiUserAddressbookConnectionString"].ConnectionString;
     }
 }

@@ -1,4 +1,4 @@
-﻿using AddressBook.ENT;
+﻿using Addressbook.ENT;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Data.SqlTypes;
 /// <summary>
 /// Summary description for ContactWiseContactCategoryDAL
 /// </summary>
-namespace AddressBook.DAL
+namespace Addressbook.DAL
 {
     public class ContactWiseContactCategoryDAL : DatabaseConfig
     {
@@ -33,7 +33,7 @@ namespace AddressBook.DAL
 
 
         #region Insert ContactWiseContactCategory
-        public bool InsertContactWiseContactCategory(List<ContactWiseContactCategoryENT> contactWiseContactCategories)
+        public Boolean InsertContactWiseContactCategory(List<ContactWiseContactCategoryENT> contactWiseContactCategories)
         {
             #region Set Connection
             SqlConnection objConn = new SqlConnection(DatabaseConfig.ConnectionString);
@@ -85,7 +85,7 @@ namespace AddressBook.DAL
         #endregion Insert ContactWiseContactCategory
 
         #region Delete ContactWiseContactCategory By ContactID
-        public bool DeleteContactWiseContactCategory(SqlInt32 ContactID, SqlInt32 UserID)
+        public Boolean DeleteContactWiseContactCategory(SqlInt32 ContactID, SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -102,9 +102,11 @@ namespace AddressBook.DAL
                         //SqlCommand objCmd = new SqlCommand("PR_ContactWiseContactCategory_DeleteByContactIDUserID", objConn);
 
                         objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.CommandText = "PR_ContactWiseContactCategory_DeleteByContactID";
-                        objCmd.Parameters.AddWithValue("@ContactID", ContactID);
+                        objCmd.CommandText = "[PR_ContactWiseContactCategory_DeleteByContactID]";
+
+                        objCmd.Parameters.AddWithValue("@ContactID", ContactID.ToString());
                         objCmd.Parameters.AddWithValue("@UserID", UserID);
+
                         objCmd.ExecuteNonQuery();
                         #endregion Create Command and Set Parameters
 

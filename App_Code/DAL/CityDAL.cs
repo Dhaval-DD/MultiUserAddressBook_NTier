@@ -1,4 +1,4 @@
-﻿using AddressBook.ENT;
+﻿using Addressbook.ENT;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,7 +9,7 @@ using System.Linq;
 /// Summary description for CityDAL
 /// </summary>
 
-namespace AddressBook.DAL
+namespace Addressbook.DAL
 {
     public class CityDAL : DatabaseConfig
     {
@@ -33,7 +33,7 @@ namespace AddressBook.DAL
 
         #region SelectAll
         //Get City List
-        public DataTable SelectAll()
+        public DataTable SelectAll(SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -45,6 +45,7 @@ namespace AddressBook.DAL
                         #region Prepared Command
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_City_SelectAllByUserID";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
                         #endregion Prepared Command
 
                         #region ReadData & Set Control
@@ -74,106 +75,12 @@ namespace AddressBook.DAL
                 }
             }
         }
+
+        internal bool DeleteCity(CityENT entCity)
+        {
+            throw new NotImplementedException();
+        }
         #endregion SelectAll
-
-        #region Fill Country
-        public DataTable FillCountry(SqlInt32 UserID)
-        {
-            using (SqlConnection objConn = new SqlConnection(ConnectionString))
-            {
-                if (objConn.State != ConnectionState.Open)
-                    objConn.Open();
-                using (SqlCommand objCmd = objConn.CreateCommand())
-                {
-                    try
-                    {
-                        #region Prepared Command & Set Parameters
-                        objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.CommandText = "PR_Country_SelectForDropDownList";
-                        objCmd.Parameters.AddWithValue("@UserID", UserID);
-                        #endregion Prepared Command & Set Parameters
-
-                        #region ReadData & Set Control
-                        DataTable dt = new DataTable();
-                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
-                        {
-                            dt.Load(objSDR);
-                        }
-                        return dt;
-                        #endregion ReadData & Set Control
-
-                    }
-                    catch (SqlException sqlex)
-                    {
-
-                        Message = sqlex.InnerException.Message.ToString();
-                        return null;
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Message = ex.InnerException.Message.ToString();
-                        return null;
-                    }
-                    finally
-                    {
-                        if (objConn.State == ConnectionState.Open)
-                            objConn.Close();
-                    }
-                }
-            }
-        }
-        #endregion Fill Country
-
-        #region Fill State
-        public DataTable FillState(SqlInt32 UserID, SqlInt32 CountryID)
-        {
-            using (SqlConnection objConn = new SqlConnection(ConnectionString))
-            {
-                if (objConn.State != ConnectionState.Open)
-                    objConn.Open();
-                using (SqlCommand objCmd = objConn.CreateCommand())
-                {
-                    try
-                    {
-                        #region Prepared Command & Set Parameters
-                        objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.CommandText = "PR_State_SelectByCountryID";
-                        objCmd.Parameters.AddWithValue("@UserID", UserID);
-                        objCmd.Parameters.AddWithValue("@CountryID", CountryID);
-                        #endregion Prepared Command & Set Parameters
-
-                        #region ReadData & Set Control
-                        DataTable dt = new DataTable();
-                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
-                        {
-                            dt.Load(objSDR);
-                        }
-                        return dt;
-                        #endregion ReadData & Set Control
-
-                    }
-                    catch (SqlException sqlex)
-                    {
-
-                        Message = sqlex.InnerException.Message.ToString();
-                        return null;
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Message = ex.InnerException.Message.ToString();
-                        return null;
-                    }
-                    finally
-                    {
-                        if (objConn.State == ConnectionState.Open)
-                            objConn.Close();
-                    }
-                }
-            }
-        }
-        #endregion Fill State
 
         #region SelectByPK
         //Get City BY ID
@@ -233,6 +140,167 @@ namespace AddressBook.DAL
             }
         }
         #endregion SelectByPK
+
+        /*  #region Select SelectForDropDownList Country
+        public DataTable SelectForDropDownListCountry(SqlInt32 UserID)
+        {
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                if (objConn.State != ConnectionState.Open)
+                    objConn.Open();
+                using (SqlCommand objCmd = objConn.CreateCommand())
+                {
+                    try
+                    {
+                        #region Prepared Command & Set Parameters
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Country_SelectForDropDownList";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+                        #endregion Prepared Command & Set Parameters
+
+                        #region ReadData & Set Control
+                        DataTable dt = new DataTable();
+                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        {
+                            dt.Load(objSDR);
+                        }
+                        return dt;
+                        #endregion ReadData & Set Control
+
+                    }
+                    catch (SqlException sqlex)
+                    {
+
+                        Message = sqlex.InnerException.Message.ToString();
+                        return null;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Message = ex.InnerException.Message.ToString();
+                        return null;
+                    }
+                    finally
+                    {
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
+                    }
+                }
+            }
+        }
+        #endregion Select SelectForDropDownList Country
+
+        #region SelectForDropDownList State by CountryID
+        public DataTable SelectForDropDownListStateByCountryID(SqlInt32 UserID, SqlInt32 CountryID)
+        {
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                if (objConn.State != ConnectionState.Open)
+                    objConn.Open();
+                using (SqlCommand objCmd = objConn.CreateCommand())
+                {
+                    try
+                    {
+                        #region Prepared Command & Set Parameters
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_State_SelectByCountryID";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+                        objCmd.Parameters.AddWithValue("@CountryID", CountryID);
+                        #endregion Prepared Command & Set Parameters
+
+                        #region ReadData & Set Control
+                        DataTable dt = new DataTable();
+                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        {
+                            dt.Load(objSDR);
+                        }
+                        return dt;
+                        #endregion ReadData & Set Control
+
+                    }
+                    catch (SqlException sqlex)
+                    {
+
+                        Message = sqlex.InnerException.Message.ToString();
+                        return null;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Message = ex.InnerException.Message.ToString();
+                        return null;
+                    }
+                    finally
+                    {
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
+                    }
+                }
+            }
+        }
+        #endregion SelectForDropDownList State by CountryID*/
+
+        #region Get City For DropDown
+        public DataTable GetCityDropDown(SqlInt32 UserID, SqlInt32 StateID)
+        {
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                if (objConn.State != ConnectionState.Open)
+                    objConn.Open();
+                using (SqlCommand objCmd = objConn.CreateCommand())
+                {
+                    try
+                    {
+                        if (objConn.State != ConnectionState.Open)
+                            objConn.Open();
+                        DataTable dt = new DataTable();
+                        #region Create Command and Bind Data
+                       
+                        objCmd.CommandType = CommandType.StoredProcedure;
+
+                        if (!StateID.IsNull)
+                        {
+
+                            objCmd.CommandText = "PR_City_SelectByStateID";
+                            objCmd.Parameters.AddWithValue("@StateID", StateID);
+                        }
+                        else
+                        {
+                            objCmd.CommandText = "PR_City_SelectForDropDownList";
+                        }
+
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+
+                        SqlDataReader objSDR = objCmd.ExecuteReader();
+
+                        dt.Load(objSDR);
+
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
+                        return dt;
+
+                        #endregion Create Command and Bind Data
+
+                    }
+                    catch (SqlException sqlex)
+                    {
+                        Message = sqlex.InnerException.Message.ToString();
+                        return null;
+                    }
+                    catch (Exception ex)
+                    {
+                        Message = ex.InnerException.Message.ToString();
+                        return null;
+                    }
+                    finally
+                    {
+                        if (objConn.State == ConnectionState.Open)
+                            objConn.Close();
+                    }
+                }
+            }
+        }
+        #endregion Get City For DropDown
 
         #region Insert City
         public Boolean InsertCity(CityENT entCity)
@@ -352,7 +420,7 @@ namespace AddressBook.DAL
         #endregion Update City
 
         #region Delete City
-        public Boolean DeleteCity(CityENT entCity)
+        public Boolean DeleteCity(SqlInt32 CityID, SqlInt32 UserID)
         {
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
@@ -365,8 +433,8 @@ namespace AddressBook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_City_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@CityD", entCity.CityID);
-                        objCmd.Parameters.AddWithValue("@UserID", entCity.UserID);
+                        objCmd.Parameters.AddWithValue("@CityID", CityID);
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();
 

@@ -8,7 +8,7 @@ using System.Web;
 /// Summary description for ContactENT
 /// </summary>
 
-namespace AddressBook.ENT
+namespace Addressbook.ENT
 {
     public class ContactENT
     {
