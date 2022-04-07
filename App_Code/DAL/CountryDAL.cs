@@ -322,7 +322,7 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_Country_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@CountryD", CountryID);
+                        objCmd.Parameters.AddWithValue("@CountryID", CountryID);
                         objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();

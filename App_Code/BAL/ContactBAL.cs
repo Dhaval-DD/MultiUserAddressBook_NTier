@@ -33,19 +33,11 @@ namespace Addressbook.BAL
         #endregion Local Variables : Message
 
         #region InsertContact
-        public Boolean InsertContact(ContactENT entContact)
+        public SqlInt32 InsertContact(ContactENT entContact)
         {
             ContactDAL dalContact = new ContactDAL();
-            if (dalContact.InsertContact(entContact))
-            {
-                return true;
-            }
-            else
-            {
-                Message = dalContact.Message;
-                return false;
-            }
-
+            return dalContact.InsertContact(entContact);
+           
         }
         #endregion InsertContact
 
@@ -66,10 +58,10 @@ namespace Addressbook.BAL
         #endregion DeleteContact
 
         #region UpdateContact
-        public Boolean UpdateContact(ContactENT entContact)
+        public Boolean UpdateContact(ContactENT entContact, SqlInt32 UserID)
         {
             ContactDAL dalContact = new ContactDAL();
-            if (dalContact.UpdateContact(entContact))
+            if (dalContact.UpdateContact(entContact,  UserID))
             {
                 return true;
             }
@@ -98,10 +90,10 @@ namespace Addressbook.BAL
         #endregion SelectByPK
 
         #region UpdateImage
-        public Boolean UpdateImage(ContactENT entContact)
+        public Boolean UpdateImage(SqlInt32 UserID, SqlInt32 ContactID, SqlString ContactFilePath, SqlInt32 FileSize, SqlString FileType)
         {
             ContactDAL dalContact = new ContactDAL();
-            if (dalContact.UpdateImage(entContact))
+            if (dalContact.UpdateImage( UserID,  ContactID,  ContactFilePath,  FileSize,  FileType))
             {
                 return true;
             }

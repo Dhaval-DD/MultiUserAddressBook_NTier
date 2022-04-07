@@ -49,7 +49,7 @@ namespace Addressbook.DAL
                     SqlCommand objCmd = new SqlCommand();
                     objCmd.Connection = objConn;
                     objCmd.CommandType = CommandType.StoredProcedure;
-                    objCmd.CommandText = "PR_ContactWiseContactCategory_Insert";
+                    objCmd.CommandText = "[PR_ContactWiseContactCategoery_Insert]";
 
                     objCmd.Parameters.AddWithValue("@ContactID", contactWiseContactCategory.ContactID);
                     objCmd.Parameters.AddWithValue("@ContactCategoryID", contactWiseContactCategory.ContactCategoryID);
@@ -177,7 +177,7 @@ namespace Addressbook.DAL
                         }*/
                         if (!objSDR["SelectOrNot"].Equals(DBNull.Value))
                         {
-                            entContactWiseContactCategory.SelecteOrNot = objSDR["SelectOrNot"].ToString();
+                            entContactWiseContactCategory.SelectOrNot = objSDR["SelectOrNot"].ToString();
                         }
                         if (!objSDR["ContactWiseContactCategoryID"].Equals(DBNull.Value))
                         {

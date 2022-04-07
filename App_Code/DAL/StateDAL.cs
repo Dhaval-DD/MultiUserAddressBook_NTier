@@ -321,7 +321,7 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_State_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@StateD", StateID);
+                        objCmd.Parameters.AddWithValue("@StateID", StateID);
                         objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();

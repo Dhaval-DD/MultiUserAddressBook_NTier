@@ -78,11 +78,11 @@ namespace Addressbook.ENT
             set { _ContactCategory = value; }
         }
 
-        protected SqlString _SelecteOrNot;
-        public SqlString SelecteOrNot
+        protected SqlString _SelectOrNot;
+        public SqlString SelectOrNot
         {
-            get { return _SelecteOrNot; }
-            set { _SelecteOrNot = value; }
+            get { return _SelectOrNot; }
+            set { _SelectOrNot = value; }
         }
     }
 }

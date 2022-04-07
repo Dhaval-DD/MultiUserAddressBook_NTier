@@ -264,7 +264,7 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_ContactCategory_DeleteByPK";
 
-                        objCmd.Parameters.AddWithValue("@ContactCategoryD", ContactCategoryID);
+                        objCmd.Parameters.AddWithValue("@ContactCategoryID", ContactCategoryID);
                         objCmd.Parameters.AddWithValue("@UserID", UserID);
 
                         objCmd.ExecuteNonQuery();
