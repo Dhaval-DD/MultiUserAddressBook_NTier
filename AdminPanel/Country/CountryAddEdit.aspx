@@ -55,7 +55,7 @@
 
         <div class="row">
             <div class="col-md-12  d-flex justify-content-center">
-                <asp:Label CssClass="" runat="server" ID="lblMessage" EnableViewState="False" />
+                <asp:Label foreColor="red" runat="server" ID="lblMessage" EnableViewState="False" />
             </div>
         </div>
         <br />

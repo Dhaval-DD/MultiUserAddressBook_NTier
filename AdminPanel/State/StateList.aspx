@@ -18,8 +18,8 @@
                 <asp:GridView ID="gvState" runat="server" OnRowCommand="gvState_RowCommand" en>
                     <Columns>
                         <%--<asp:BoundField DataField="StateID" HeaderText="ID" />--%>
-                        <asp:BoundField DataField="CountryName" HeaderText="Country" />
                         <asp:BoundField DataField="StateName" HeaderText="State" />
+                        <asp:BoundField DataField="CountryName" HeaderText="Country" />
                         <asp:BoundField DataField="StateCode" HeaderText="State Code" />
 
                         <asp:TemplateField HeaderText="Edit">

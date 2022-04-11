@@ -90,10 +90,17 @@ namespace Addressbook.BAL
         }
         #endregion Get State DropDown
 
+      
         public DataTable SelectAll(SqlInt32 UserID)
         {
             StateDAL dalState = new StateDAL();
             return dalState.SelectAll(UserID);
+        }
+
+        public StateENT SelectByPK(SqlInt32 StateID, SqlInt32 UserID)
+        {
+            StateDAL dalState = new StateDAL();
+            return dalState.SelectByPK(StateID, UserID);
         }
 
     }

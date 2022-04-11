@@ -17,10 +17,6 @@ public partial class AdminPanel_CountryList : System.Web.UI.Page
         {
             FillGridViewCountry();
         }
-
-
-
-
     }
     #endregion Load event
 

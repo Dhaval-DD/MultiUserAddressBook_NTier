@@ -72,7 +72,7 @@
                 Age:
             </div>
             <div class="col-md-8">
-                <asp:TextBox placeholder="Enter your Age" ID="txtAge" runat="server" CssClass="form-control" />
+                <asp:TextBox placeholder="Enter your Age" ID="txtAge" runat="server" CssClass="form-control" TextMode="Number" />
             </div>
             <br />
             <br />

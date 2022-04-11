@@ -1,11 +1,8 @@
 ﻿using Addressbook.ENT;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-using System.Linq;
-using System.Web;
 
 /// <summary>
 /// Summary description for StateDAL
@@ -160,16 +157,19 @@ namespace Addressbook.DAL
                         StateENT entState = new StateENT();
                         using (SqlDataReader objSDR = objCmd.ExecuteReader())
                         {
-                            if (!objSDR["StateID"].Equals(DBNull.Value))
-                                entState.StateID = Convert.ToInt32(objSDR["StateID"]);
-                            if (!objSDR["StateName"].Equals(DBNull.Value))
-                                entState.StateName = Convert.ToString(objSDR["StateName"]);
-                            if (!objSDR["StateCode"].Equals(DBNull.Value))
-                                entState.StateCode = Convert.ToString(objSDR["StateCode"]);
-                            if (!objSDR["CountryID"].Equals(DBNull.Value))
-                                entState.CountryID = Convert.ToInt32(objSDR["CountryID"]);
-                            if (!objSDR["CreationDate"].Equals(DBNull.Value))
-                                entState.CreationDate = Convert.ToDateTime(objSDR["CreationDate"].ToString());
+                            while (objSDR.Read())
+                            {
+                                if (!objSDR["StateID"].Equals(DBNull.Value))
+                                    entState.StateID = Convert.ToInt32(objSDR["StateID"]);
+                                if (!objSDR["StateName"].Equals(DBNull.Value))
+                                    entState.StateName = Convert.ToString(objSDR["StateName"]);
+                                if (!objSDR["StateCode"].Equals(DBNull.Value))
+                                    entState.StateCode = Convert.ToString(objSDR["StateCode"]);
+                                if (!objSDR["CountryID"].Equals(DBNull.Value))
+                                    entState.CountryID = Convert.ToInt32(objSDR["CountryID"]);
+                               
+                                break;
+                            }
                         }
                         return entState;
                         #endregion ReadData & Set Control
@@ -263,7 +263,7 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_State_UpdateByPK";
 
-                        objCmd.Parameters.AddWithValue("@StateD", entState.StateID);
+                        objCmd.Parameters.AddWithValue("@StateID", entState.StateID);
                         objCmd.Parameters.AddWithValue("@UserID", entState.UserID);
                         objCmd.Parameters.AddWithValue("@CountryID", entState.CountryID);
                         objCmd.Parameters.AddWithValue("@StateName", entState.StateName);
@@ -362,55 +362,55 @@ namespace Addressbook.DAL
         }
         #endregion Delete State
 
-       /* #region Fill Country
-        public DataTable FillCountry(SqlInt32 UserID)
-        {
-            using (SqlConnection objConn = new SqlConnection(ConnectionString))
-            {
-                if (objConn.State != ConnectionState.Open)
-                    objConn.Open();
-                using (SqlCommand objCmd = objConn.CreateCommand())
-                {
-                    try
-                    {
-                        #region Prepared Command & Set Parameters
-                        objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.CommandText = "PR_Country_SelectForDropDownList";
-                        objCmd.Parameters.AddWithValue("@UserID", UserID);
-                        #endregion Prepared Command & Set Parameters
+        /* #region Fill Country
+         public DataTable FillCountry(SqlInt32 UserID)
+         {
+             using (SqlConnection objConn = new SqlConnection(ConnectionString))
+             {
+                 if (objConn.State != ConnectionState.Open)
+                     objConn.Open();
+                 using (SqlCommand objCmd = objConn.CreateCommand())
+                 {
+                     try
+                     {
+                         #region Prepared Command & Set Parameters
+                         objCmd.CommandType = CommandType.StoredProcedure;
+                         objCmd.CommandText = "PR_Country_SelectForDropDownList";
+                         objCmd.Parameters.AddWithValue("@UserID", UserID);
+                         #endregion Prepared Command & Set Parameters
 
-                        #region ReadData & Set Control
-                        DataTable dt = new DataTable();
-                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
-                        {
-                            dt.Load(objSDR);
-                        }
-                        return dt;
-                        #endregion ReadData & Set Control
+                         #region ReadData & Set Control
+                         DataTable dt = new DataTable();
+                         using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                         {
+                             dt.Load(objSDR);
+                         }
+                         return dt;
+                         #endregion ReadData & Set Control
 
-                    }
-                    catch (SqlException sqlex)
-                    {
+                     }
+                     catch (SqlException sqlex)
+                     {
 
-                        Message = sqlex.InnerException.Message.ToString();
-                        return null;
+                         Message = sqlex.InnerException.Message.ToString();
+                         return null;
 
-                    }
-                    catch (Exception ex)
-                    {
-                        Message = ex.InnerException.Message.ToString();
-                        return null;
-                    }
-                    finally
-                    {
-                        if (objConn.State == ConnectionState.Open)
-                            objConn.Close();
-                    }
-                }
-            }
-        }
-        #endregion Fill Country
-*/
+                     }
+                     catch (Exception ex)
+                     {
+                         Message = ex.InnerException.Message.ToString();
+                         return null;
+                     }
+                     finally
+                     {
+                         if (objConn.State == ConnectionState.Open)
+                             objConn.Close();
+                     }
+                 }
+             }
+         }
+         #endregion Fill Country
+ */
 
     }
 }

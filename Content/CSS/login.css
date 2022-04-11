@@ -53,7 +53,7 @@ form {
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    padding: 20px 35px;
 }
 
     form * {
@@ -125,10 +125,10 @@ label {
 }
     .button:hover {
         /*background-color: rgba(25,25,25,0.47);*/
-        border: 10px;
-        color: blue;
-        border-width: 100px;
-        border-color: white;
+        /*border: 10px;*/
+        color: red;
+        /*border-width: 100px;*/
+       /* border-color: white;*/
     }
 
 
@@ -167,8 +167,12 @@ label {
 
 
 p {
-    margin-top: 40px;
+    margin-top: 12px;
     margin-bottom:-7px;
+}
+.signup {
+    margin-top: 10px;
+    margin-bottom: -7px;
 }
 
 .hover-underline-animation {

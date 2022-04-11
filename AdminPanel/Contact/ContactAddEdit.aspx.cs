@@ -191,45 +191,11 @@ public partial class AdminPanel_Contact_ContactAddEdit : System.Web.UI.Page
             UserID = Convert.ToInt32(Session["UserID"])
         };
 
-        //#region Set Connection & Command Object
-
-        //if (objConn.State != ConnectionState.Open)
-        //    objConn.Open();
-
-        //SqlCommand objCmd = objConn.CreateCommand();
-        //objCmd.CommandType = CommandType.StoredProcedure;
-
-        //objCmd.Parameters.AddWithValue("@CountryID", strCountryID);
-        //objCmd.Parameters.AddWithValue("@StateID", strStateID);
-        //objCmd.Parameters.AddWithValue("@CityID", strCityID);
-        ////objCmd.Parameters.AddWithValue("@ContactCategoryID", strContactcategoryID);
-        //objCmd.Parameters.AddWithValue("@ContactName", strContactName);
-        //objCmd.Parameters.AddWithValue("@WhatsappNo", strWhatsappNo);
-        //objCmd.Parameters.AddWithValue("@Birthdate", strBirthdate);
-        //objCmd.Parameters.AddWithValue("@Email", strEmail);
-        //objCmd.Parameters.AddWithValue("@Age", strAge);
-        //objCmd.Parameters.AddWithValue("@Address", strAddress);
-        //objCmd.Parameters.AddWithValue("@BloodGroup", strBloodGroup);
-        //objCmd.Parameters.AddWithValue("@FacebookID", strFacebookID);
-        //objCmd.Parameters.AddWithValue("@LinkdINID", strLinkdINID);
-
-        //if (Session["UserID"] != null)
-        //    objCmd.Parameters.AddWithValue("@UserID", Convert.ToInt32(Session["UserID"]));
-
-        //#endregion Set Connection & Command  Object
-
 
         if (RouteData.Values["ContactID"] != null) //RouteData.Values...
         {
             #region Update Record  
-            //objCmd.Parameters.AddWithValue("@ContactCategoryID", strContactcategoryID);
-
-            ////Edit Mode
-            ////objCmd.Parameters.AddWithValue("@ContactID", RouteData.Values["ContactID"].ToString().Trim());
-            //objCmd.Parameters.AddWithValue("@ContactID", Convert.ToInt32(EncryptDecrypt.Base64Decode(RouteData.Values["ContactID"].ToString())));
-            //objCmd.CommandText = "[PR_Contact_UpdateByPK]";
-
-            //objCmd.ExecuteNonQuery();
+            //Edit Mode
 
             //ContactID = Convert.ToInt32(objCmd.Parameters["@ContactID"].Value);
             entContact.ContactID = Convert.ToInt32(EncryptDecrypt.Base64Decode(RouteData.Values["ContactID"].ToString().Trim()));
@@ -262,15 +228,6 @@ public partial class AdminPanel_Contact_ContactAddEdit : System.Web.UI.Page
             #region Insert Record
 
             ////Add Mode
-            //objCmd.CommandText = "[PR_Contact_Insert]";
-            ////we need contactid (pk) after insertion of record
-            ////it is needed to inserted records  in the table in contact table 
-            //objCmd.Parameters.Add("@ContactID", SqlDbType.Int, 4).Direction = ParameterDirection.Output;
-
-            //objCmd.ExecuteNonQuery();
-
-            //ContactID = Convert.ToInt32(objCmd.Parameters["@ContactID"].Value);
-
 
             ContactID = balContact.InsertContact(entContact);
             string FileType = Path.GetExtension(fuFile.FileName).ToLower();
@@ -295,7 +252,7 @@ public partial class AdminPanel_Contact_ContactAddEdit : System.Web.UI.Page
 
             AddContactCategory(ContactID);
             ClearControls();
-            lblMessage.Text = "<strong>" + strContactName.Value +"</strong>&nbsp;" +" Add successfully";
+            lblMessage.Text = "<strong>" + strContactName.Value + "</strong>&nbsp;" + " Add successfully";
             #endregion Insert Record
         }
     }
@@ -321,52 +278,6 @@ public partial class AdminPanel_Contact_ContactAddEdit : System.Web.UI.Page
         {
             lblMessage.Text = contactWiseContactCategoryBAL.Message;
         }
-
-        //#region Set Connection
-        //SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
-
-        //#endregion Set Connection
-        //try
-        //{
-        //    if (objConn.State != ConnectionState.Open)
-        //        objConn.Open();
-
-        //    SqlCommand objCmd = objConn.CreateCommand();
-        //    objCmd.CommandType = CommandType.StoredProcedure;
-        //    objCmd.CommandText = "[PR_ContactCategory_SelectOrNot]";
-
-        //    if (Session["UserID"] != null)
-        //        objCmd.Parameters.AddWithValue("@UserID", Convert.ToInt32(Session["UserID"]));
-        //    objCmd.Parameters.AddWithValue("@ContactID", ID);
-        //    SqlDataReader objSDR = objCmd.ExecuteReader();
-
-        //    if (objSDR.HasRows)
-        //    {
-        //        while (objSDR.Read())
-        //        {
-        //            if (objSDR["SelectOrNot"].ToString() == "Selected")
-        //            {
-        //                cblContactCategoryID.Items.FindByValue(objSDR["ContactCategoryID"].ToString()).Selected = true;
-        //            }
-        //        }
-        //    }
-
-
-        //    if (objConn.State == ConnectionState.Open)
-        //        objConn.Close();
-
-        //}
-        //catch (Exception ex)
-        //{
-        //    lblMessage.Text = ex.Message;
-        //    //lblMessage.Text = ex.Message + ex ;
-        //}
-        //finally
-        //{
-        //    if (objConn.State == ConnectionState.Open)
-        //        objConn.Close();
-        //}
-
 
     }
     #endregion Fill ContactCategory

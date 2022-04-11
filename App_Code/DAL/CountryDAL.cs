@@ -1,8 +1,8 @@
-﻿    using Addressbook.ENT;
-    using System;
-    using System.Data;
-    using System.Data.SqlClient;
-    using System.Data.SqlTypes;
+﻿using Addressbook.ENT;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 /// <summary>
 /// Summary description for CountryDAL
@@ -139,7 +139,7 @@ namespace Addressbook.DAL
             //SqlConnection objConn = new SqlConnection(DatabaseConfig.ConnectionString);
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
-                if (objConn.State != ConnectionState.Closed)
+                if (objConn.State != ConnectionState.Open)
                     objConn.Open();
                 using (SqlCommand objCmd = objConn.CreateCommand())
                 {
@@ -156,16 +156,18 @@ namespace Addressbook.DAL
                         CountryENT entCountry = new CountryENT();
                         using (SqlDataReader objSDR = objCmd.ExecuteReader())
                         {
-                            if (!objSDR["CountryID"].Equals(DBNull.Value))
-                                entCountry.CountryID = Convert.ToInt32(objSDR["CountryID"]);
-                            if (!objSDR["CountryName"].Equals(DBNull.Value))
-                                entCountry.CountryName = Convert.ToString(objSDR["CountryName"]);
-                            if (!objSDR["CountryCode"].Equals(DBNull.Value))
-                                entCountry.CountryCode = Convert.ToString(objSDR["CountryCode"]);
-                            if (!objSDR["CountryID"].Equals(DBNull.Value))
-                                entCountry.CountryID = Convert.ToInt32(objSDR["CountryID"]);
-                            if (!objSDR["CreationDate"].Equals(DBNull.Value))
-                                entCountry.CreationDate = Convert.ToDateTime(objSDR["CreationDate"].ToString());
+                            while (objSDR.Read())
+                            {
+                                if (!objSDR["CountryID"].Equals(DBNull.Value))
+                                {
+                                    entCountry.CountryID = Convert.ToInt32(objSDR["CountryID"]);
+                                }
+                                if (!objSDR["CountryName"].Equals(DBNull.Value))
+                                    entCountry.CountryName = Convert.ToString(objSDR["CountryName"]);
+                                if (!objSDR["CountryCode"].Equals(DBNull.Value))
+                                    entCountry.CountryCode = Convert.ToString(objSDR["CountryCode"]);
+                                break;
+                            }
                         }
                         return entCountry;
                         #endregion ReadData & Set Control
@@ -206,8 +208,9 @@ namespace Addressbook.DAL
                         #region Prepared Command
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_Country_Insert";
+
+
                         objCmd.Parameters.AddWithValue("@UserID", entCountry.UserID);
-                        objCmd.Parameters.AddWithValue("@CountryID", entCountry.CountryID);
                         objCmd.Parameters.AddWithValue("@CountryName", entCountry.CountryName);
                         objCmd.Parameters.AddWithValue("@CountryCode", entCountry.CountryCode);
 
@@ -263,7 +266,7 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_Country_UpdateByPK";
 
-                        objCmd.Parameters.AddWithValue("@CountryD", entCountry.CountryID);
+                        objCmd.Parameters.AddWithValue("@CountryID", entCountry.CountryID);
                         objCmd.Parameters.AddWithValue("@UserID", entCountry.UserID);
                         objCmd.Parameters.AddWithValue("@CountryName", entCountry.CountryName);
                         objCmd.Parameters.AddWithValue("@CountryCode", entCountry.CountryCode);

@@ -105,18 +105,26 @@ namespace Addressbook.DAL
                         CityENT entCity = new CityENT();
                         using (SqlDataReader objSDR = objCmd.ExecuteReader())
                         {
-                            if (!objSDR["CityID"].Equals(DBNull.Value))
-                                entCity.CityID = Convert.ToInt32(objSDR["CityID"]);
-                            if (!objSDR["UserID"].Equals(DBNull.Value))
-                                entCity.UserID = Convert.ToInt32(objSDR["UserID"]);
-                            if (!objSDR["CityName"].Equals(DBNull.Value))
-                                entCity.CityName = Convert.ToString(objSDR["CityName"]);
-                            if (!objSDR["STDCode"].Equals(DBNull.Value))
-                                entCity.STDCode = Convert.ToString(objSDR["STDCode"]);
-                            if (!objSDR["PINCode"].Equals(DBNull.Value))
-                                entCity.PINCode = Convert.ToString(objSDR["PINCode"]);
-                            if (!objSDR["CreationDate"].Equals(DBNull.Value))
-                                entCity.CreationDate = Convert.ToDateTime(objSDR["CreationDate"].ToString());
+                            while (objSDR.Read())
+                            {
+
+                                if (!objSDR["CountryID"].Equals(DBNull.Value))
+                                    entCity.CountryID = Convert.ToInt32(objSDR["CountryID"]);
+                                if (!objSDR["StateID"].Equals(DBNull.Value))
+                                    entCity.StateID = Convert.ToInt32(objSDR["StateID"]);
+
+                                if (!objSDR["CityID"].Equals(DBNull.Value))
+                                    entCity.CityID = Convert.ToInt32(objSDR["CityID"]);
+                                if (!objSDR["CityName"].Equals(DBNull.Value))
+                                    entCity.CityName = Convert.ToString(objSDR["CityName"]);
+                                if (!objSDR["STDCode"].Equals(DBNull.Value))
+                                    entCity.STDCode = Convert.ToString(objSDR["STDCode"]);
+                                if (!objSDR["PINCode"].Equals(DBNull.Value))
+                                    entCity.PINCode = Convert.ToString(objSDR["PINCode"]);
+                                if (!objSDR["CreationDate"].Equals(DBNull.Value))
+                                    entCity.CreationDate = Convert.ToDateTime(objSDR["CreationDate"].ToString());
+                                break;
+                            }
                         }
                         return entCity;
                         #endregion ReadData & Set Control
@@ -373,7 +381,7 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_City_UpdateByPK";
 
-                        objCmd.Parameters.AddWithValue("@CityD", entCity.CityID);
+                        objCmd.Parameters.AddWithValue("@CityID", entCity.CityID);
                         objCmd.Parameters.AddWithValue("@UserID", entCity.UserID);
                         objCmd.Parameters.AddWithValue("@StateID", entCity.StateID);
                         objCmd.Parameters.AddWithValue("@CountryID", entCity.CountryID);

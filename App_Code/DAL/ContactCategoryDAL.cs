@@ -88,7 +88,7 @@ namespace Addressbook.DAL
             //SqlConnection objConn = new SqlConnection(DatabaseConfig.ConnectionString);
             using (SqlConnection objConn = new SqlConnection(ConnectionString))
             {
-                if (objConn.State != ConnectionState.Closed)
+                if (objConn.State != ConnectionState.Open)
                     objConn.Open();
                 using (SqlCommand objCmd = objConn.CreateCommand())
                 {
@@ -105,14 +105,16 @@ namespace Addressbook.DAL
                         ContactCategoryENT entContactCategory = new ContactCategoryENT();
                         using (SqlDataReader objSDR = objCmd.ExecuteReader())
                         {
-                            if (!objSDR["ContactCategoryID"].Equals(DBNull.Value))
-                                entContactCategory.ContactCategoryID = Convert.ToInt32(objSDR["ContactCategoryID"]);
-                            if (!objSDR["ContactCategoryName"].Equals(DBNull.Value))
-                                entContactCategory.ContactCategoryName = Convert.ToString(objSDR["ContactCategoryName"]);
-                            if (!objSDR["ContactCategoryID"].Equals(DBNull.Value))
-                                entContactCategory.ContactCategoryID = Convert.ToInt32(objSDR["ContactCategoryID"]);
-                            if (!objSDR["CreationDate"].Equals(DBNull.Value))
-                                entContactCategory.CreationDate = Convert.ToDateTime(objSDR["CreationDate"].ToString());
+                            while (objSDR.Read())
+                            {
+                                if (!objSDR["ContactCategoryID"].Equals(DBNull.Value))
+                                    entContactCategory.ContactCategoryID = Convert.ToInt32(objSDR["ContactCategoryID"]);
+                                if (!objSDR["ContactCategoryName"].Equals(DBNull.Value))
+                                    entContactCategory.ContactCategoryName = Convert.ToString(objSDR["ContactCategoryName"]);
+                                if (!objSDR["CreationDate"].Equals(DBNull.Value))
+                                    entContactCategory.CreationDate = Convert.ToDateTime(objSDR["CreationDate"].ToString());
+                                break;
+                            }
                         }
                         return entContactCategory;
                         #endregion ReadData & Set Control
@@ -151,7 +153,6 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_ContactCategory_Insert";
                         objCmd.Parameters.AddWithValue("@UserID", entContactCategory.UserID);
-                        objCmd.Parameters.AddWithValue("@ContactCategoryID", entContactCategory.ContactCategoryID);
                         objCmd.Parameters.AddWithValue("@ContactCategoryName", entContactCategory.ContactCategoryName);
 
                         objCmd.ExecuteNonQuery();
@@ -206,7 +207,7 @@ namespace Addressbook.DAL
                         objCmd.CommandType = CommandType.StoredProcedure;
                         objCmd.CommandText = "PR_ContactCategory_UpdateByPK";
 
-                        objCmd.Parameters.AddWithValue("@ContactCategoryD", entContactCategory.ContactCategoryID);
+                        objCmd.Parameters.AddWithValue("@ContactCategoryID", entContactCategory.ContactCategoryID);
                         objCmd.Parameters.AddWithValue("@UserID", entContactCategory.UserID);
                         objCmd.Parameters.AddWithValue("@ContactCategoryName", entContactCategory.ContactCategoryName);
 

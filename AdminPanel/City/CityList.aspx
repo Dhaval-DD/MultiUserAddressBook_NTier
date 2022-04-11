@@ -21,8 +21,8 @@
             <asp:GridView ID="gvCity" runat="server" OnRowCommand="gvCity_RowCommand">
                 <Columns>
                     <%--<asp:BoundField DataField="CityID" HeaderText="ID" />--%>
-                    <asp:BoundField DataField="StateName" HeaderText="State Name" />
                     <asp:BoundField DataField="CityName" HeaderText="City Name" />
+                    <asp:BoundField DataField="StateName" HeaderText="State Name" />
                     <asp:BoundField DataField="STDCode" HeaderText="STD Code" />
                     <asp:BoundField DataField="PINCode" HeaderText="PIN Code" />
                     <%--<asp:BoundField DataField="CreationDate" HeaderText="Country Code" />--%>

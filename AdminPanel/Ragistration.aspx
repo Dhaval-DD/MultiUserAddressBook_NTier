@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <nav class="navbar  navbar-expand-lg navbar-dark bg-dark header">
+  <%--  <nav class="navbar  navbar-expand-lg navbar-dark bg-dark header">
         <i class="fas fa-address-book" style="font-size: 30px; color: white;"></i>&nbsp;&nbsp;
     <a class="navbar-brand" href="#" style="font-size: 25px;">Address Book</a>
         <a class="navbar-brand" href="#" style="font-size: 25px; font-family: monospace">| Registration</a>
@@ -26,7 +26,7 @@
 
         <div class="collapse navbar-collapse" style="" id="navbarSupportedContent">
         </div>
-    </nav>
+    </nav>--%>
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
@@ -40,7 +40,7 @@
 
 
 
-                    <h2 class="active">Sign Up </h2>
+                    <h2 class="active">Address Book<br /><span class="fs-3 font-monospace ">Sign up</span></h2>
 
 
                     <asp:TextBox runat="server" ID="txtUserNameRegister" class="input" placeholder="User Name*"></asp:TextBox>
