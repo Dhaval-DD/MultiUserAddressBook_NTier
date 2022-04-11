@@ -95,7 +95,7 @@
                 <span class="required">*</span>
             </div>
             <div class="col-md-8">
-                <asp:TextBox ID="txtWhatsappNo" placeholder="Enter your Whatsapp Number" runat="server" CssClass="form-control" MaxLength="10" TextMode="Number" />
+                <asp:TextBox ID="txtWhatsappNo" placeholder="Enter your Whatsapp Number (Indian)" runat="server" CssClass="form-control" MaxLength="10" TextMode="Number" />
                 <asp:RegularExpressionValidator ID="rvMobilenumber" runat="server" ControlToValidate="txtWhatsappNo" Display="Dynamic" ErrorMessage="Please enter valid phone no" Font-Size="Small" ForeColor="Red" Type="Integer" ValidationExpression="^[6-9][0-9]{9}$" ValidationGroup="ctForm"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="rfWhatsappNo" runat="server" Display="Dynamic" ErrorMessage="Please Enter Whatsapp No." ForeColor="Red" ValidationGroup="ctForm" ControlToValidate="txtWhatsappNo" Font-Size="Small"></asp:RequiredFieldValidator>
             </div>
