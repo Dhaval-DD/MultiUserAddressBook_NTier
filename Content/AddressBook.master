@@ -28,7 +28,7 @@
 
         <nav class="navbar  navbar-expand-lg navbar-dark bg-dark header">
 
-            <i class="fas fa-address-book" style="font-size: 30px; color: white;"></i>&nbsp;&nbsp;
+            <i class="fas fa-address-book" id="logonav"></i>&nbsp;&nbsp;
 
             <asp:HyperLink class="navbar-brand" runat="server" NavigateUrl="~/Welcome" style="font-size: 25px;">Address Book</asp:HyperLink>
 
@@ -61,7 +61,7 @@
             </div>
 
             <asp:Label Style="color: white;" runat="server" ID="lblUserName"></asp:Label>&nbsp;&nbsp;
-            <asp:LinkButton ID="lbtnLogout" CssClass="btn btn-warning" runat="server" Text="Logout" OnClick="lbtnLogout_Click"></asp:LinkButton>
+            <asp:LinkButton ID="lbtnLogout" CssClass=" btn btn-warning" runat="server" Style="margin-right:10px;" Text="Logout" OnClick="lbtnLogout_Click"></asp:LinkButton>
 
         </nav>
 
