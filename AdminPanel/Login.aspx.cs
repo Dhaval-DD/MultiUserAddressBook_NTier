@@ -88,7 +88,7 @@ public partial class AdminPanel_Login : System.Web.UI.Page
                     break;
                 }
 
-                Response.Redirect("~/AdminPanel/Default.aspx", true);
+                Response.Redirect("~/Welcome", true);
 
             }
             else

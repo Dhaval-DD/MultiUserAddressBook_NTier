@@ -30,7 +30,7 @@
 
             <i class="fas fa-address-book" style="font-size: 30px; color: white;"></i>&nbsp;&nbsp;
 
-            <a class="navbar-brand" href="#" style="font-size: 25px;">Address Book</a>
+            <asp:HyperLink class="navbar-brand" runat="server" NavigateUrl="~/Welcome" style="font-size: 25px;">Address Book</asp:HyperLink>
 
 
 
@@ -81,9 +81,12 @@
         </div>
         <div>
             <nav class="navbar  navbar-expand-lg navbar-dark bg-dark footerFont ">
-                <div class="col-md-6 ">
+                <div class="col-md-6 offset-1">
                     <div style="color: white">
-                        <span style="font-size: 18px;">Dhaval Dobariya  |  190540107050@darshan.ac.in      
+                        <span style="font-size: 18px; ">Dhaval Dobariya <br /> 
+                            <asp:HyperLink class="link" NavigateUrl="https://github.com/Dhaval-DD" runat="server"><i class="h4 fa-brands fa-github-square"></i></asp:HyperLink>
+                            &nbsp;<asp:HyperLink class="link" NavigateUrl="https://www.linkedin.com/in/dhaval-dobariya333/" runat="server"><i class="h4 fa-brands fa-linkedin"></i></asp:HyperLink>
+                                  
                         </span>
                     </div>
                 </div>

@@ -178,7 +178,8 @@ p {
 .hover-underline-animation {
     display: inline-block;
     position: relative;
-    color: #0087ca;
+    color: deepskyblue;
+    /*color: #0087ca;*/
     font-size:20px;
     text-decoration:none;
 
@@ -195,7 +196,7 @@ p {
     background-color: #0087ca;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
-    color:white;
+    color:red;
 }
 
     .hover-underline-animation:hover:after {

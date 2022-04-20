@@ -39,6 +39,11 @@
     {
         routes.Ignore("{resource}.axd/{*pathInfo}");
 
+
+        routes.MapPageRoute("Welcome",
+            "Welcome",
+            "~/AdminPanel/Default.aspx");
+
         routes.MapPageRoute("AdminPanelCountryList",
             "AdminPanel/Country/List",
             "~/AdminPanel/Country/CountryList.aspx");
