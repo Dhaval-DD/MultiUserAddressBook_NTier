@@ -15,7 +15,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MultiUserAddressBook_NTier"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_9088"
 		
-		Release.AspNetCompiler.PhysicalPath = "..\MultiUserAddressBook_NTier\"
+		Release.AspNetCompiler.PhysicalPath = ".\MultiUserAddressBook_NTier\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9088\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
