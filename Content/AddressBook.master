@@ -19,7 +19,7 @@
 
 
 
-    <title></title>
+    <title>Address Book</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
