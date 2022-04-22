@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files\microsoft visual studio\2022\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="17.0">
+ <Targets>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmp7795.tmp.cadir\bin\App_Code.dll">
+   <Modules>
+    <Module Name="app_code.dll">
+     <Namespaces>
+      <Namespace Name="Addressbook.DAL">
+       <Types>
+        <Type Name="CityDAL" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteCity(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CityDAL.cs" Line="478">Object 'objConn' can be disposed more than once in method 'CityDAL.DeleteCity(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 478, 479</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetCityDropDown(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CityDAL.cs" Line="306">Object 'objConn' can be disposed more than once in method 'CityDAL.GetCityDropDown(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 306, 307</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertCity(Addressbook.ENT.CityENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CityDAL.cs" Line="363">Object 'objConn' can be disposed more than once in method 'CityDAL.InsertCity(CityENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 363, 364</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAll(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CityDAL.cs" Line="74">Object 'objConn' can be disposed more than once in method 'CityDAL.SelectAll(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 74</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectByPK(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CityDAL.cs" Line="146">Object 'objConn' can be disposed more than once in method 'CityDAL.SelectByPK(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 146</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdateCity(Addressbook.ENT.CityENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CityDAL.cs" Line="423">Object 'objConn' can be disposed more than once in method 'CityDAL.UpdateCity(CityENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 423, 424</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ContactCategoryDAL" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteContactCategory(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactCategoryDAL.cs" Line="302">Object 'objConn' can be disposed more than once in method 'ContactCategoryDAL.DeleteContactCategory(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 302, 303</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetContactCategoryDropDown(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactCategoryDAL.cs" Line="354">Object 'objConn' can be disposed more than once in method 'ContactCategoryDAL.GetContactCategoryDropDown(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 354, 355</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertContactCategory(Addressbook.ENT.ContactCategoryENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactCategoryDAL.cs" Line="188">Object 'objConn' can be disposed more than once in method 'ContactCategoryDAL.InsertContactCategory(ContactCategoryENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 188, 189</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAll(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactCategoryDAL.cs" Line="76">Object 'objConn' can be disposed more than once in method 'ContactCategoryDAL.SelectAll(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 76, 77</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectByPK(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactCategoryDAL.cs" Line="136">Object 'objConn' can be disposed more than once in method 'ContactCategoryDAL.SelectByPK(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 136</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdateContactCategory(Addressbook.ENT.ContactCategoryENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactCategoryDAL.cs" Line="245">Object 'objConn' can be disposed more than once in method 'ContactCategoryDAL.UpdateContactCategory(ContactCategoryENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 245, 246</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ContactDAL" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteContact(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactDAL.cs" Line="355">Object 'objConn' can be disposed more than once in method 'ContactDAL.DeleteContact(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 355, 356</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DeleteImage(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactDAL.cs" Line="404">Object 'objConn' can be disposed more than once in method 'ContactDAL.DeleteImage(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 404, 405</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertContact(Addressbook.ENT.ContactENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactDAL.cs" Line="228">Object 'objConn' can be disposed more than once in method 'ContactDAL.InsertContact(ContactENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 228, 229</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAll(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactDAL.cs" Line="77">Object 'objConn' can be disposed more than once in method 'ContactDAL.SelectAll(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 77, 78</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectByPK(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactDAL.cs" Line="164">Object 'objConn' can be disposed more than once in method 'ContactDAL.SelectByPK(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 164, 165</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdateContact(Addressbook.ENT.ContactENT,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactDAL.cs" Line="298">Object 'objConn' can be disposed more than once in method 'ContactDAL.UpdateContact(ContactENT, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 298, 299</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdateImage(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlString,System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlString)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactDAL.cs" Line="457">Object 'objConn' can be disposed more than once in method 'ContactDAL.UpdateImage(SqlInt32, SqlInt32, SqlString, SqlInt32, SqlString)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 457, 458</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ContactWiseContactCategoryDAL" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteContactWiseContactCategory(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactWiseContactCategoryDAL.cs" Line="134">Object 'objConn' can be disposed more than once in method 'ContactWiseContactCategoryDAL.DeleteContactWiseContactCategory(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 134, 135</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertContactWiseContactCategory(System.Collections.Generic.List`1&lt;Addressbook.ENT.ContactWiseContactCategoryENT&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactWiseContactCategoryDAL.cs" Line="82">Object 'objConn' can be disposed more than once in method 'ContactWiseContactCategoryDAL.InsertContactWiseContactCategory(List&lt;ContactWiseContactCategoryENT&gt;)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 82</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectOrNot(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="ContactWiseContactCategoryDAL.cs" Line="206">Object 'objConn' can be disposed more than once in method 'ContactWiseContactCategoryDAL.SelectOrNot(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 206</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="CountryDAL" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteCountry(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CountryDAL.cs" Line="362">Object 'objConn' can be disposed more than once in method 'CountryDAL.DeleteCountry(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 362, 363</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetCountryDropDown(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CountryDAL.cs" Line="128">Object 'objConn' can be disposed more than once in method 'CountryDAL.GetCountryDropDown(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 128, 129</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertCountry(Addressbook.ENT.CountryENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CountryDAL.cs" Line="247">Object 'objConn' can be disposed more than once in method 'CountryDAL.InsertCountry(CountryENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 247, 248</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAll(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CountryDAL.cs" Line="75">Object 'objConn' can be disposed more than once in method 'CountryDAL.SelectAll(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 75, 76</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectByPK(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CountryDAL.cs" Line="189">Object 'objConn' can be disposed more than once in method 'CountryDAL.SelectByPK(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 189</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdateCountry(Addressbook.ENT.CountryENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="CountryDAL.cs" Line="305">Object 'objConn' can be disposed more than once in method 'CountryDAL.UpdateCountry(CountryENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 305, 306</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="StateDAL" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DeleteState(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="StateDAL.cs" Line="358">Object 'objConn' can be disposed more than once in method 'StateDAL.DeleteState(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 358, 359</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetStateDropDown(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="StateDAL.cs" Line="129">Object 'objConn' can be disposed more than once in method 'StateDAL.GetStateDropDown(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 129, 130</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertState(Addressbook.ENT.StateENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="StateDAL.cs" Line="245">Object 'objConn' can be disposed more than once in method 'StateDAL.InsertState(StateENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 245, 246</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectAll(System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="StateDAL.cs" Line="73">Object 'objConn' can be disposed more than once in method 'StateDAL.SelectAll(SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 73</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SelectByPK(System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="StateDAL.cs" Line="191">Object 'objConn' can be disposed more than once in method 'StateDAL.SelectByPK(SqlInt32, SqlInt32)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 191</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdateState(Addressbook.ENT.StateENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="StateDAL.cs" Line="303">Object 'objConn' can be disposed more than once in method 'StateDAL.UpdateState(StateENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 303, 304</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="UserDAL" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#InsertUser(Addressbook.ENT.UserENT)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="UserDAL.cs" Line="82">Object 'objConn' can be disposed more than once in method 'UserDAL.InsertUser(UserENT)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 82, 83</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ValidateUser(System.Data.SqlTypes.SqlString,System.Data.SqlTypes.SqlString)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\App_Code\DAL" File="UserDAL.cs" Line="143">Object 'objConn' can be disposed more than once in method 'UserDAL.ValidateUser(SqlString, SqlString)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 143</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Dell\AppData\Local\Temp\tmp7795.tmp.cadir\bin\App_Web_2qwd50xq.dll">
+   <Modules>
+    <Module Name="app_web_2qwd50xq.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AdminPanel_Login" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnLogin_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\AdminPanel" File="Login.aspx.cs" Line="108">Object 'objConn' can be disposed more than once in method 'AdminPanel_Login.btnLogin_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 108</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="AdminPanel_Ragistration" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnRegister_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2022-04-22 07:41:44Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="E:\💻 COLLAGE\Project\dotNet\MultiUserAddressBook_NTier\AdminPanel" File="Ragistration.aspx.cs" Line="123">Object 'objConn' can be disposed more than once in method 'AdminPanel_Ragistration.btnRegister_Click(object, EventArgs)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 123</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>Do not dispose objects multiple times</Name>
+   <Description>A correctly implemented Dispose method can be called multiple times without throwing an exception. However, this is not guaranteed and to avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.</Description>
+   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 108</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="17.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

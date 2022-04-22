@@ -42,7 +42,7 @@
 
 
         <h3 class="display-7 fw-lighter">ADDRESS BOOK<br />
-            <span class="fs-3 font-monospace ">Sign In</span></h3>
+            <span class="fs-3 font-monospace ">Sign in</span></h3>
 
 
         <label for="username">Username</label>

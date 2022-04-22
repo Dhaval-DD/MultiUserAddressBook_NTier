@@ -66,7 +66,7 @@
                     <asp:Button ValidationGroup="RUser" CssClass="button" runat="server" ID="btnRegister" Text="Submit" class="fadeIn six" OnClick="btnRegister_Click" /><br />
                     <asp:Label runat="server" ID="lblMessage" EnableViewState="false" />
 
-                    <asp:HyperLink runat="server" class="h2 underlineHover " Style="color: lightgreen" ID="hlLogin" Text="Sign In" NavigateUrl="~/AdminPanel/Login.aspx" />
+                    <asp:HyperLink runat="server" class="h2 underlineHover " Style="color: lightgreen" ID="hlLogin" Text="Sign in" NavigateUrl="~/AdminPanel/Login.aspx" />
 
 
 
