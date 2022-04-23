@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ASP-app
-          path: /published/**
+          path: '/published/**'
           # path: '\publish'
           # \publish
 
@@ -48,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: ASP-app
-          path: /published/**
+          # path: /published/**
 
 
       - name: Deploy to Azure Web App
