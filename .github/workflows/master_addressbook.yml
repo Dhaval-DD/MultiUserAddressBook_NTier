@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'addressbook'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6407F83E0C2D400AACB5E77768ACC563 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5F9464F341824B28BD3A33686CD0F232 }}
           package: .
