@@ -32,7 +32,8 @@ Open folder click on
 ```bash
   MultiUserAddressBook_NTier.sln
 ```
-its open Visual Studio after opening press  'ctrl + F5'
+its open Visual Studio
+After opening project press 'ctrl + F5'
 
 
 
