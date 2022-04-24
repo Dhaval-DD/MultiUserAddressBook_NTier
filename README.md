@@ -1,7 +1,7 @@
 
 # Address Book 
 
-This web application can manage multi-user addresses and users can register and login. User can manage contacts and their details like Country, City, State, contact categories and photo, I have used a 3-tier architecture and increase performance. This web application made by ASP.NET and SQL server from azure.
+This web application can manage multi-user addresses and users can register and login. User can manage contacts and their details like Country, City, State, contact categories and photo, I have used 3-tier architecture and increase performance. This web application made on ASP.NET c# and SQL server from azure.
 
 
 ## Tech Stack
