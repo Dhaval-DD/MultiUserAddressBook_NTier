@@ -33,7 +33,8 @@ Open folder click on
   MultiUserAddressBook_NTier.sln
 ```
 its open Visual Studio
-After opening project press 'ctrl + F5'
+After opening project open app press 'ctrl + F5'
+or open AdminPanel/Ragistration.aspx and 'view in browser'
 
 
 
