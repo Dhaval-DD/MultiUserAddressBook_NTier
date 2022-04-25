@@ -13,21 +13,13 @@ This web application can manage multi-user addresses and users can register and 
 
 ## Run Locally
 
-#### Install Visual Studio
-
 Clone the project
 
 ```bash
   git clone https://github.com/Dhaval-DD/MultiUserAddressBook_NTier
 ```
 
-Go to the project directory
-
-```bash
-  cd MultiUserAddressBook_NTier
-```
-
-Open folder click on
+Open folder  & click on
 
 ```bash
   MultiUserAddressBook_NTier.sln
