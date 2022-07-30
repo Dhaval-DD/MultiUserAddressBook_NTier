@@ -6,7 +6,7 @@ This web application can manage multi-user addresses and users can register and 
 
 ## Tech Stack
 
-**Client:** HTML, CSS, Bootstrap
+**Front-end:** HTML, CSS, Bootstrap
 
 **Server:** ASP.NET ,Azure SQL Server
 
